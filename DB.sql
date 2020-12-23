@@ -23,18 +23,32 @@ Si el cliente realiza el check-out pasado medio día, se le cobrará una mora po
 mientras que la hora del check-in es inamovible, sin embargo, se 
 */
 
-/*
-PAIS
-# Codigo de pais
-* Nombre
-*/
-
 CREATE DATABASE practica2;
 USE practica2;
 
+/*
+	PAIS
+	# Codigo de pais
+	* Nombre
+*/
+
 CREATE TABLE Pais (
 	id_pais INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    nombre INT  NOT NULL
+    nombre VARCHAR(100)  NOT NULL
+);
+
+/*
+	HOTEL
+	# Codigo de hotel
+	* Estrellas
+	* (Pais)
+*/
+
+CREATE TABLE Hotel (
+	id_hotel INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    estrellas INT  NOT NULL,
+    id_pais INT NOT NULL,
+    FOREIGN KEY (id_pais) REFERENCES Pais(id_pais)
 );
 
 
