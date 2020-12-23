@@ -51,4 +51,18 @@ CREATE TABLE Hotel (
     FOREIGN KEY (id_pais) REFERENCES Pais(id_pais)
 );
 
+/*
+	Habitacion
+	# Codigo de hotel
+	* Tipo habitacion
+	* (Hotel)
+*/
+
+CREATE TABLE Habitacion (
+	id_habitacion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    tipo_habitacion VARCHAR(25)  NOT NULL,
+    id_hotel INT NOT NULL,
+    FOREIGN KEY (id_pais) REFERENCES Pais(id_pais)
+);
+
 
