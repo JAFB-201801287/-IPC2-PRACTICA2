@@ -65,4 +65,13 @@ CREATE TABLE Habitacion (
     FOREIGN KEY (id_pais) REFERENCES Pais(id_pais)
 );
 
+/*
+	Husped
+	# Codigo de husped
+    * nombre
+*/
 
+CREATE TABLE Husped (
+	id_husped INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(100)  NOT NULL
+);
