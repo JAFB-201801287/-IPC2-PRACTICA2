@@ -23,6 +23,9 @@ Si el cliente realiza el check-out pasado medio día, se le cobrará una mora po
 mientras que la hora del check-in es inamovible, sin embargo, se 
 */
 
+/*
+DROP DATABASE practica2;
+*/
 CREATE DATABASE practica2;
 USE practica2;
 
@@ -40,12 +43,14 @@ CREATE TABLE Pais (
 /*
 	HOTEL
 	# Codigo de hotel
+    * nombre
 	* Estrellas
 	* (Pais)
 */
 
 CREATE TABLE Hotel (
 	id_hotel INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
     estrellas INT  NOT NULL,
     id_pais INT NOT NULL,
     FOREIGN KEY (id_pais) REFERENCES Pais(id_pais)
@@ -62,7 +67,7 @@ CREATE TABLE Habitacion (
 	id_habitacion INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     tipo_habitacion VARCHAR(25)  NOT NULL,
     id_hotel INT NOT NULL,
-    FOREIGN KEY (id_pais) REFERENCES Pais(id_pais)
+    FOREIGN KEY (id_hotel) REFERENCES Hotel(id_hotel)
 );
 
 /*
@@ -74,4 +79,21 @@ CREATE TABLE Habitacion (
 CREATE TABLE Husped (
 	id_husped INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(100)  NOT NULL
+);
+
+/*
+	Reserva
+	# Codigo de reserva
+	* Fecha
+	* (Habitacion)
+	* (Husped)
+*/
+
+CREATE TABLE Reserva (
+	id_reserva INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    fecha DATE NOT NULL,
+    id_habitacion INT NOT NULL,
+    id_husped INT NOT NULL,
+    FOREIGN KEY (id_habitacion) REFERENCES Habitacion(id_habitacion),
+    FOREIGN KEY (id_husped) REFERENCES Husped(id_husped)
 );
