@@ -138,6 +138,23 @@ SELECT * FROM Habitacion;
 INSERT INTO Husped(nombre) 
 VALUES('Juan'), ('Pedro'), ('Luis'), ('Carlos'), ('Sara'), ('Pamela'), ('Lola'), ('Jose'), ('Tatiana'), ('Luisa');
 SELECT * FROM Husped;
+
+/* RESERVA */
+INSERT INTO Reserva(fecha, id_habitacion, id_husped) 
+VALUES('', '', '');
+SELECT * FROM Reserva;
       
-      
+/* CONSULTAS --------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Cantidad de hoteles por país*/
+SELECT p.nombre AS 'PAIS' , COUNT(*) AS 'NUMERO DE HOTELES POR PAIS'
+FROM Hotel h
+INNER JOIN Pais p ON h.id_pais = p.id_pais
+GROUP BY h.id_pais;
+
+/*Cantidad de hoteles por país*/
+SELECT p.nombre AS 'PAIS' , COUNT(*) AS 'NUMERO DE HOTELES POR PAIS'
+FROM Hotel h
+INNER JOIN Pais p ON h.id_pais = p.id_pais
+GROUP BY h.id_pais;
       
